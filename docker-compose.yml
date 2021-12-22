@@ -1,0 +1,7 @@
+version: "2.1"
+services:
+  app:
+    build: .
+    container_name: swapi-explorer
+    ports:
+      - "2222:2222"
