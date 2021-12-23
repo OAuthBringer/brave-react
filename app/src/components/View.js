@@ -81,7 +81,6 @@ const View = ({ resource = {}, ...rest }) => {
 
                       const urlLabel = url.split("/")
                       const label = `${urlLabel.slice(-3)[0]} ${urlLabel.slice(-2)[0]}`
-                      console.log({urlLabel, label})
                       return (
                         <Grid item>
                           <Chip
