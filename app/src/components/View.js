@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Chip from "@mui/material/Chip";
+import { Chip } from "./PageElements";
 import humanizeString from "humanize-string";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
@@ -64,10 +64,7 @@ const View = ({ resource = {}, ...rest }) => {
                   flexDirection="row"
                   sx={{ maxWidth: "100%" }}
                 >
-                  <Grid
-                    container
-                    columns={{ xs: 4, sm: 8, md: 12 }}
-                  >
+                  <Grid container columns={{ xs: 4, sm: 8, md: 12 }}>
                     {value.map((url) => {
                       const onClick = async () => {
                         if (!url || !setResource) return;
@@ -79,17 +76,20 @@ const View = ({ resource = {}, ...rest }) => {
                         setRows([]);
                       };
 
-                      const urlLabel = url.split("/")
-                      const label = `${urlLabel.slice(-3)[0]} ${urlLabel.slice(-2)[0]}`
+                      const urlLabel = url.split("/");
+                      const label = `${urlLabel.slice(-3)[0]} ${
+                        urlLabel.slice(-2)[0]
+                      }`;
                       return (
                         <Grid item>
                           <Chip
                             {...{
-                              component: "button",
                               onClick,
-                              color: "primary",
                             }}
-                            sx={{ marginLeft: "1rem", marginBottom: "1rem" }}
+                            sx={{
+                              marginLeft: "1rem",
+                              marginBottom: "1rem",
+                            }}
                             label={label}
                           />
                         </Grid>

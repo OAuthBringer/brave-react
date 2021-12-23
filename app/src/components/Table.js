@@ -6,7 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Chip from "@mui/material/Chip";
+import { Chip } from "./PageElements";
 import humanizeString from "humanize-string";
 import { swapi } from "../requests";
 import { useAppContext } from "../AppContext";
@@ -44,9 +44,7 @@ const DataTableRow = ({ row = {}, columns = [], ...rest }) => {
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
       >
         <TableCell component="th" scope="row">
-          <Chip
-            {...{ component: "button", onClick, label: row[primaryColumn], color: "primary" }}
-          />
+          <Chip {...{ onClick, label: row[primaryColumn] }} />
         </TableCell>
         {secondaryColumns.map((column, i) => (
           <TableCell align="right" key={`${column}-i`}>
