@@ -4,10 +4,15 @@ import "./App.css";
 import { swapi } from "./requests";
 import AppContext from "./components/AppContext";
 import Navigation from "./components/Navigation";
+import Table from "./components/Table";
 import { adaptToDisplay } from "./adapters/navigation";
 
-function App() {
+const App = () => {
   const [sections, setSections] = useState([]);
+
+  // This is where redux would usually come in but I don't want to go
+  // down that rabbit hole just yet.  Trying to keep scope tight here.
+  const [rows, setRows] = useState([]);
 
   const fetchData = async () => {
     setSections(adaptToDisplay(await swapi.get()));
@@ -15,17 +20,24 @@ function App() {
 
   useEffect(() => fetchData(), []);
 
+  const appContext = {
+    sections,
+    setRows,
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a className="App-link" href="/explore">
-          Explore Swapi
-        </a>
-        {sections && sections.length && <Navigation {...{ sections }} />}
-      </header>
-    </div>
+    <AppContext.Provider value={appContext}>
+      <div className="App">
+        <header className="App-header">
+          <h2>Explore Swapi</h2>
+          {sections && sections.length && <Navigation {...{ sections }} />}
+          <img src={logo} className="App-logo" alt="logo" />
+          <Table {...{ rows }} />
+        </header>
+        <body className="App-body" />
+      </div>
+    </AppContext.Provider>
   );
-}
+};
 
 export default App;
