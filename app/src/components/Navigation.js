@@ -22,7 +22,7 @@ const NavItem = ({ name, url, ...rest }) => {
       {...{
         variant: "outlined",
         onClick,
-        sx: { color: "secondary.light", borderColor: "primary.light"},
+        sx: { color: "secondary.main", borderColor: "primary.light", fontWeight: 600},
       }}
     >
       {name}
