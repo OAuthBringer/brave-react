@@ -6,11 +6,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Link from "@mui/material/Link";
 import Chip from "@mui/material/Chip";
 import humanizeString from "humanize-string";
 import { swapi } from "../requests";
-import { useAppContext } from "./AppContext";
+import { useAppContext } from "../AppContext";
 import { adaptToDisplay } from "../adapters/view";
 
 const parseColumns = (rows = []) => {

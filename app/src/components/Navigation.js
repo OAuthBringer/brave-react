@@ -1,9 +1,8 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { useAppContext } from "./AppContext";
+import { useAppContext } from "../AppContext";
 import { adaptToDisplay } from "../adapters/table";
 
 // FIXME bah, relative paths, I need to do some config somewhere

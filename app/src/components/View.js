@@ -1,13 +1,11 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Link from "@mui/material/Link";
 import Chip from "@mui/material/Chip";
 import humanizeString from "humanize-string";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import { useAppContext } from "./AppContext";
+import { useAppContext } from "../AppContext";
 import { adaptToDisplay } from "../adapters/view";
 import { swapi } from "../requests";
 

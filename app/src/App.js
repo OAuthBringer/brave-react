@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import logo from "./logo.svg";
 import Box from "@mui/material/Box";
 import "./App.css";
 import { swapi } from "./requests";
 import Typography from "@mui/material/Typography";
-import AppContext from "./components/AppContext";
+import AppContext from "./AppContext";
 import Navigation from "./components/Navigation";
 import Table from "./components/Table";
 import View from "./components/View";
