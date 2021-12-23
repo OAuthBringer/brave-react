@@ -16,14 +16,30 @@ const NavItem = ({ name, url, ...rest }) => {
     setResource(null);
   };
 
-  return <Button {...{ variant: "outlined", onClick }}>{name}</Button>;
+  // Note: sx is theme context aware.  Ergo you can reference primary/secondary variants.
+  return (
+    <Button
+      {...{
+        variant: "outlined",
+        onClick,
+        sx: { color: "secondary.light", borderColor: "primary.light"},
+      }}
+    >
+      {name}
+    </Button>
+  );
 };
 
 const Navigation = ({ sections = [], ...rest }) => {
   return (
-    <Box display="flex" direction="row" justifyContent="center" alignItems="center">
+    <Box
+      display="flex"
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Grid
-        sx={{ marginLeft: "0"}}
+        sx={{ marginLeft: "0" }}
         container
         spacing={{ xs: 2, md: 3 }}
         columns={{ xs: 4, sm: 8, md: 12 }}
