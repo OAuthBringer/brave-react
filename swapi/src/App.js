@@ -30,11 +30,12 @@ const App = () => {
       <div className="App">
         <header className="App-header">
           <h2>Explore Swapi</h2>
-          {sections && sections.length && <Navigation {...{ sections }} />}
-          <img src={logo} className="App-logo" alt="logo" />
-          <Table {...{ rows }} />
+          {sections && !!sections.length && <Navigation {...{ sections }} />}
         </header>
-        <body className="App-body" />
+        <div className="App-body">
+          {!rows.length && <img src={logo} className="App-logo" alt="logo" />}
+          {!!rows.length && <>{rows.length && <Table {...{ rows }} />}</>}
+        </div>
       </div>
     </AppContext.Provider>
   );
