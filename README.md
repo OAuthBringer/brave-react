@@ -16,6 +16,10 @@ To spin it up:
 `docker-compose build`
 `docker-compose run`
 
+You will be able to view the front-end at http://localhost:2222
+
+https://github.com/OAuthBringer/brave-rails is the expected backend here so it should be up and running locally in order to get live data and caching.
+
 To tear everything down:
 
 `docker-compose down`
@@ -28,6 +32,7 @@ You can deploy the app standalone without the companion rails api backend, but i
 
 ## Strengths
 
+1. Dynamically generates Navigational Elements, Table columns/rows, and View sections based on incoming data. 
 1. Supports all SWAPI api endpoints and sections natively and is thus functionally complete.  Any new sections added to https://swapi.dev/api will automatically populate over time. All views/tables are supported with 2 components and a thin adapter layer that handles data coming from the backend. 
 1. Mobile Responsive by default.
 1. Themes can be swapped out cleanly.
