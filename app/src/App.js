@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 import "./App.css";
 import { swapi } from "./requests";
 import Typography from "@mui/material/Typography";
@@ -41,25 +42,32 @@ const App = () => {
       <Theme>
         <div className="App">
           <header className="App-header">
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-between"
-              sx={{ width: "95%" }}
-            >
-              <Box
-                display="flex"
-                flexDirection="column"
-                alignItems="flex-start"
+            <Box sx={{ width: "95%" }}>
+              <Grid
+                spacing={2}
+                container
+                alignItems="center"
+                justifyContent="space-between"
               >
-                <Typography variant="h2">Swapi Explorer</Typography>
-                <Typography variant="subtitle1">
-                  Be Brave, the galaxy awaits.
-                </Typography>
-              </Box>
-              {sections && !!sections.length && (
-                <Navigation {...{ sections }} />
-              )}
+                <Grid item>
+                  <Grid container direction="row">
+                    <Typography variant="h2" color="secondary.main">
+                      Swapi
+                    </Typography>
+                    <Typography variant="h2">Explorer</Typography>
+                  </Grid>
+
+                  <Typography variant="subtitle1">
+                    Be Brave, the galaxy awaits.
+                  </Typography>
+                </Grid>
+
+                <Grid item sx={{ paddingBottom: "1rem" }}>
+                  {sections && !!sections.length && (
+                    <Navigation {...{ sections }} />
+                  )}
+                </Grid>
+              </Grid>
             </Box>
           </header>
           <div className="App-body">
