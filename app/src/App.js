@@ -52,8 +52,15 @@ const App = () => {
                 flexDirection="column"
                 alignItems="flex-start"
               >
-                <Typography variant="h2">Swapi Explorer</Typography>
-                <Typography variant="subtitle1">
+                <Box display="flex">
+                  <Typography variant="h2" color="secondary.main">Swapi</Typography>
+                  <Typography variant="h2">
+                    Explorer
+                  </Typography>
+                </Box>
+                <Typography
+                  variant="subtitle1"
+                >
                   Be Brave, the galaxy awaits.
                 </Typography>
               </Box>
