@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Link from "@mui/material/Link";
+import Chip from "@mui/material/Chip";
 import humanizeString from "humanize-string";
 import { swapi } from "../requests";
 import { useAppContext } from "./AppContext";
@@ -44,12 +45,14 @@ const DataTableRow = ({ row = {}, columns = [], ...rest }) => {
         sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
       >
         <TableCell component="th" scope="row">
-          <Link {...{ component: "button", onClick }}>
-            {row[primaryColumn]}
-          </Link>
+          <Chip
+            {...{ component: "button", onClick, label: row[primaryColumn], color: "primary" }}
+          />
         </TableCell>
         {secondaryColumns.map((column, i) => (
-          <TableCell align="right" key={`${column}-i`}>{row[column]}</TableCell>
+          <TableCell align="right" key={`${column}-i`}>
+            {row[column]}
+          </TableCell>
         ))}
       </TableRow>
     </>
@@ -73,13 +76,17 @@ const DataTable = ({ rows = [], ...rest }) => {
                 props.align = "right";
               }
 
-              return <TableCell key={`table-header-${i}`} {...props}>{val}</TableCell>;
+              return (
+                <TableCell key={`table-header-${i}`} {...props}>
+                  {val}
+                </TableCell>
+              );
             })}
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row, i) => (
-            <DataTableRow key={`table-row-${i}`}{...{ row, columns }} />
+            <DataTableRow key={`table-row-${i}`} {...{ row, columns }} />
           ))}
         </TableBody>
       </Table>

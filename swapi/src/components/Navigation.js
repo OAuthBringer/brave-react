@@ -17,16 +17,21 @@ const NavItem = ({ name, url, ...rest }) => {
     setResource(null);
   };
 
-  return <Button {...{ variant: "contained", onClick }}>{name}</Button>;
+  return <Button {...{ variant: "outlined", onClick }}>{name}</Button>;
 };
 
 const Navigation = ({ sections = [], ...rest }) => {
   return (
-    <Box display="flex" justifyContent="center">
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+    <Box display="flex" direction="row" justifyContent="center" alignItems="center">
+      <Grid
+        sx={{ marginLeft: "0"}}
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
         {sections.map((section, i) => {
           return (
-            <Grid item key={`nav-section-${i}`}>
+            <Grid item>
               <NavItem {...section} />
             </Grid>
           );

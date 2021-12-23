@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import logo from "./logo.svg";
+import Box from "@mui/material/Box";
 import "./App.css";
 import { swapi } from "./requests";
+import Typography from "@mui/material/Typography";
 import AppContext from "./components/AppContext";
 import Navigation from "./components/Navigation";
 import Table from "./components/Table";
@@ -40,13 +42,46 @@ const App = () => {
       <Theme>
         <div className="App">
           <header className="App-header">
-            <h2>Explore Swapi</h2>
-            {sections && !!sections.length && <Navigation {...{ sections }} />}
+            <Box
+              display="flex"
+              flexDirection="row"
+              justifyContent="space-between"
+              sx={{ width: "95%" }}
+            >
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="flex-start"
+              >
+                <Typography variant="h2">Swapi Explorer</Typography>
+                <Typography variant="subtitle1">
+                  Be Brave, the galaxy awaits.
+                </Typography>
+              </Box>
+              {sections && !!sections.length && (
+                <Navigation {...{ sections }} />
+              )}
+            </Box>
           </header>
           <div className="App-body">
             {loading && <LinearProgress />}
+            {!loading && (
+              <LinearProgress
+                variant="determinate"
+                value={100}
+                color="secondary"
+              />
+            )}
             {!resource && !rows.length && (
-              <img src={logo} className="App-logo" alt="logo" />
+              <Box sx={{ marginTop: "3rem" }}>
+                <img
+                  src={
+                    "https://imgr.search.brave.com/DRpfZMvsUmiFv5zIrbJl3iMehSfA-Wsagt_TcAgbbHA/fit/1139/1139/ce/1/aHR0cHM6Ly93d3cu/Y3J5cHRvY29tcGFy/ZS5jb20vbWVkaWEv/MzUxNjU0L2JyYXZl/X2xvZ29fc3RhY2tl/ZC5wbmc"
+                  }
+                  className="App-logo"
+                  alt="logo"
+                />
+              </Box>
             )}
             {!resource && !!rows.length && (
               <>{rows.length && <Table {...{ rows }} />}</>
