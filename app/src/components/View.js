@@ -16,7 +16,8 @@ const View = ({ resource = {}, ...rest }) => {
     <Box sx={{ flexGrow: 1 }}>
       <Box display="flex">
         <Typography
-          variant="h4"
+          variant="h5"
+          color="secondary.light"
           gutterBottom
           sx={{ marginLeft: "1rem", marginTop: "1rem" }}
         >
@@ -53,7 +54,8 @@ const View = ({ resource = {}, ...rest }) => {
               >
                 <Typography
                   key={`assoc-${key}`}
-                  variant="h4"
+                  variant="h5"
+                  color="secondary.light"
                   gutterBottom
                   sx={{ marginLeft: "1rem", marginTop: "1rem" }}
                 >
