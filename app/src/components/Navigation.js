@@ -9,11 +9,13 @@ import { adaptToDisplay } from "../adapters/table";
 import { swapi } from "../requests";
 
 const NavItem = ({ name, url, ...rest }) => {
-  const { setRows, setResource } = useAppContext();
+  const { setRows, setResource, setLoading } = useAppContext();
   const onClick = async () => {
     if (!setRows) return;
+    setLoading(true)
     setRows(adaptToDisplay(await swapi.get(url)));
     setResource(null);
+    setLoading(false)
   };
 
   // Note: sx is theme context aware.  Ergo you can reference primary/secondary variants.
